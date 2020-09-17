@@ -2,11 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=Roboto+Mono:wght@100;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
     <title>Scoped CSS Variables and JS</title>
   </head>
   <body>
     <h2>Update CSS Variables with <span class="hl">JS</span></h2>
-
     <div class="controls">
       <label for="spacing">Spacing:</label>
       <input
@@ -14,95 +18,34 @@
         type="range"
         name="spacing"
         min="10"
-        max="200"
+        max="150"
         value="10"
         data-sizing="px"
       />
-      <!--data-sizing = made up attribute specifying the suffix value for spacing-->
-
       <label for="blur">Blur:</label>
       <input
         id="blur"
         type="range"
         name="blur"
         min="0"
-        max="25"
+        max="10"
         value="10"
         data-sizing="px"
       />
-      <!--data-sizing = made up attribute specifying the suffix value for blur-->
-
-      <label for="base">Base Color</label>
+      <label for="base">Base Color:</label>
       <input id="base" type="color" name="base" value="#ffc600" />
     </div>
 
-    <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500" />
+    <img src="https://source.unsplash.com/NIWu18M_n7A/800x500/" />
 
-    <style>
-      /*
-      Declares CSS variables and sets their initial values
-    */
+    <footer>
+      <a href="https://github.com/wolkeval/js30-clock" target="_blank"
+        >Open-source code</a
+      >
+      by <strong>Valeria Strusi</strong><br />as part of the JavaScript 30
+      challenge 👩‍💻
+    </footer>
 
-      :root {
-        --base: #ffc600;
-        --spacing: 10px;
-        --blur: 10px;
-      }
-
-      /*
-      Uses variables declared in root
-    */
-
-      img {
-        padding: var(--spacing);
-        background: var(--base);
-        filter: blur(var(--blur));
-      }
-
-      .hl {
-        color: var(--base);
-      }
-
-      /*
-      misc styles, nothing to do with CSS variables
-    */
-
-      body {
-        text-align: center;
-        background: #193549;
-        color: white;
-        font-family: "helvetica neue", sans-serif;
-        font-weight: 100;
-        font-size: 50px;
-      }
-
-      .controls {
-        margin-bottom: 50px;
-      }
-
-      input {
-        width: 100px;
-      }
-    </style>
-
-    <script>
-      // Returns a NodeList of the inputs
-      const inputs = document.querySelectorAll(".controls input");
-
-      function handleUpdate() {
-        // dataset is an object containing all elements with data- attribute
-        const suffix = this.dataset.sizing || "";
-        document.documentElement.style.setProperty(
-          `--${this.name}`,
-          this.value + suffix
-        );
-      }
-
-      // Loops through the NodeList
-      inputs.forEach((input) => input.addEventListener("change", handleUpdate));
-      inputs.forEach((input) =>
-        input.addEventListener("mousemove", handleUpdate)
-      );
-    </script>
+    <script src="./src/index.js"></script>
   </body>
 </html>

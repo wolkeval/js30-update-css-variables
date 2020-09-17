@@ -1,0 +1,67 @@
+/* Declares CSS variables and sets their initial values */
+:root {
+  --base: #ffc600;
+  --spacing: 10px;
+  --blur: 0px;
+}
+
+a {
+  color: #ffc600;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+footer {
+  bottom: 0;
+  font-family: "Roboto Mono", monospace;
+  font-size: 21px;
+  font-weight: 100;
+  margin: 0 auto;
+  left: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+}
+
+/* Uses variables declared in root */
+img {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+  padding: var(--spacing);
+  background: var(--base);
+  filter: blur(var(--blur));
+  opacity: 80%;
+  transition: all 200ms ease-in-out;
+}
+
+img:hover {
+  opacity: 100%;
+}
+
+.hl {
+  color: var(--base);
+}
+
+/*
+      misc styles, nothing to do with CSS variables
+    */
+
+body {
+  background: #193549;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  top: 10%;
+}
+
+.controls {
+  font-weight: 100;
+  margin-bottom: 50px;
+}
+
+input {
+  width: 100px;
+}
